@@ -1,8 +1,8 @@
-def call(creId,userName,ipAddr){
-  sshagent(['creId']) {
-    sh "mv target/*.war target/webapp.war"
-    sh "scp -o StrictHostKeyChecking=no target/webapp.war ${userName}@${ipAddr}:/opt/tomcat9/webapps/"
-    sh "ssh ${userName}@${ipAddr} /opt/tomcat9/bin/shutdown.sh"
-    sh "ssh ${userName}@${ipAddr} /opt/tomcat9/bin/startup.sh"
+def call(credId,username,ipAddr){
+  sshagent(['credId']) {
+    sh "target/*.war target/webapp.war"
+    sh "scp target/*.war ${username}@${ipAddr}:/opt/tomcat9/webapps/"
+    sh "ssh ${username}@${ipAddr} /opt/tomcat9/bin/shutdown.sh"
+    sh "ssh ${username}@${ipAddr} /opt/tomcat9/bin/startuo.sh"
+  }
  }
-}
